@@ -61,24 +61,19 @@ public class MAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
   @Override
   public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
     MoreTypeBean moreTypeBean = mData.get(position);
-    switch (moreTypeBean.type) {
+
+    switch (moreTypeBean.type) {  //  比if性能好;
       case TYPE_PULL_IMAGE:
-        if (holder instanceof PullImageHolder) {
-          PullImageHolder pullImageHolder = (PullImageHolder) holder;
-          pullImageHolder.tv_title.setText("多条目-图居中");
-        }
+        PullImageHolder pullImageHolder = (PullImageHolder) holder;
+        pullImageHolder.tv_title.setText("多条目-图居中");
         break;
       case TYPE_RIGHT_IMAGE:
-        if (holder instanceof RightImageHolder) {
-          RightImageHolder rightImageHolder = (RightImageHolder) holder;
-          rightImageHolder.tv_title.setText("多条目-图在右边");
-        }
+        RightImageHolder rightImageHolder = (RightImageHolder) holder;
+        rightImageHolder.tv_title.setText("多条目-图在右边");
         break;
       case TYPE_THREE_IMAGE:
-        if (holder instanceof ThreeImageHolder) {
-          ThreeImageHolder threeImageHolder = (ThreeImageHolder) holder;
-          threeImageHolder.tv_title.setText("多条目-我是三张图");
-        }
+        ThreeImageHolder threeImageHolder = (ThreeImageHolder) holder;
+        threeImageHolder.tv_title.setText("多条目-我是三张图");
         break;
 
     }
