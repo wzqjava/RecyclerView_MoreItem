@@ -40,14 +40,13 @@ class Main2Activity : Activity() {
         manager.orientation = LinearLayoutManager.VERTICAL
         recycleView.layoutManager = manager
         adapter = MAdapter(this@Main2Activity ,myList)
-        recycleView.adapter = adapter
         adapter.setOnItemClickListener(object :OnItemClickListener{
             override fun onItemClick(position: Int) {
                 tempList.add(myList.get(position))
                 Log.e("wzq-size:", tempList.size.toString())
             }
-
         })
+        recycleView.adapter = adapter
         //设置点击事件
         MyThread().start()
 

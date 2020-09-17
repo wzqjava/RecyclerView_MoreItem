@@ -18,23 +18,16 @@ class MAdapter(context: Context, private val list: List<UserBasicInfo>) : Recycl
         this.onItemClickListener = onItemClickListener
     }
 
+    inner class MViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var tvTime: TextView = itemView.findViewById(R.id.tvTime)
 
-    inner class MViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        var tvTime: TextView = itemView.findViewById<View>(R.id.tvTime) as TextView
-
-        override fun onClick(p0: View?) {
-            Toast.makeText(p0?.context, "点击了$layoutPosition", Toast.LENGTH_SHORT).show()
-
-            tvTime.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(p0: View) {
-                    onItemClickListener?.onItemClick(layoutPosition)
-                }
-            })
-        }
     }
 
-    override fun getItemCount(): Int {
-        return list.size
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MViewHolder {
+        val view = inflater.inflate(R.layout.list_item, null)
+        val holder = MViewHolder(view)
+        return holder
     }
 
     override fun onBindViewHolder(holder: MViewHolder, position: Int) {
@@ -55,14 +48,18 @@ class MAdapter(context: Context, private val list: List<UserBasicInfo>) : Recycl
               }
               holder.tvTime!!.text = userBasicInfo.time.toString()*/
         }
+        holder.tvTime.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(p0: View?) {
+                Toast.makeText(p0?.context, "点击了$position", Toast.LENGTH_SHORT).show()
+                onItemClickListener?.onItemClick(position)
+            }
+        })
+
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MViewHolder {
-        val view = inflater.inflate(R.layout.list_item, null)
-        val holder = MViewHolder(view)
-        return holder
+    override fun getItemCount(): Int {
+        return list.size
     }
-
 
 }
