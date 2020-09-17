@@ -8,6 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Random;
+/**
+ *  王志强
+ *  原生recycler,多条目实现;
+ */
 
 public class MainActivity extends AppCompatActivity {
 
