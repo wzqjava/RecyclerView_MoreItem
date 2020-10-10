@@ -5,19 +5,17 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
 
 class Main2Activity : Activity() {
-    //设置点击事件
-    interface OnItemClickListener {
-        fun onItemClick( position: Int)
-    }
 
-    private lateinit var recycleView: RecyclerView
-    private lateinit var adapter: MAdapter
+
+    private lateinit var recycleFriends: RecyclerView
+    private lateinit var friendsAdapter: FriendsAdapter
     private lateinit var manager: LinearLayoutManager
     private val myList: MutableList<UserBasicInfo> = ArrayList()
     private val tempList: MutableList<UserBasicInfo> = ArrayList()
@@ -35,18 +33,19 @@ class Main2Activity : Activity() {
     }
 
     private fun initView() {
-        recycleView = findViewById<View>(R.id.recycle) as RecyclerView
+        recycleFriends = findViewById<View>(R.id.recycleFriends) as RecyclerView
         manager = LinearLayoutManager(this)
         manager.orientation = LinearLayoutManager.VERTICAL
-        recycleView.layoutManager = manager
-        adapter = MAdapter(this@Main2Activity ,myList)
-        adapter.setOnItemClickListener(object :OnItemClickListener{
+        recycleFriends.layoutManager = manager
+        friendsAdapter = FriendsAdapter(this@Main2Activity, myList)
+        friendsAdapter.setOnItemClickListener(object : FriendsAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 tempList.add(myList.get(position))
+                Toast.makeText(this@Main2Activity, "点击了$position", Toast.LENGTH_SHORT).show()
                 Log.e("wzq-size:", tempList.size.toString())
             }
         })
-        recycleView.adapter = adapter
+        recycleFriends.adapter = friendsAdapter
         //设置点击事件
         MyThread().start()
 
@@ -62,27 +61,32 @@ class Main2Activity : Activity() {
                 }
                 val firstVisible = manager.findFirstVisibleItemPosition()
                 val lastVisible = manager.findLastVisibleItemPosition()
-                for (i in myList.indices) {
-                    if (myList.size > 0) {
-                        if (myList[i].time > 0) {
-                            myList[i].time = myList[i].time - 1
-                        }
 
-                        if (i >= firstVisible && i <= lastVisible) {
-                            val vh = recycleView.findViewHolderForAdapterPosition(i) as MAdapter.MViewHolder
+                myList.forEachIndexed { i, userBasicInfo ->
+                    if (tempList.contains(userBasicInfo)) {
+                        updateTime(i, firstVisible, lastVisible)
+                    }
+                }
+            }
+        }
 
-                            runOnUiThread {
-                                val time = myList[i].time
+        private fun updateTime(i: Int, firstVisible: Int, lastVisible: Int) {
+            if (myList[i].time > 0) {
+                myList[i].time = myList[i].time - 1
+            }
 
-                                if (time <= 0) {
-                                    vh.tvTime!!.text = "已邀请(30s)"
-                                    vh.tvTime!!.setTextColor(Color.GRAY)
-                                } else {
-                                    vh.tvTime!!.text = "已邀请($time s)"
-//                                vh!!.tvTime!!.visibility = View.GONE
-                                }
-                            }
-                        }
+            if (i >= firstVisible && i <= lastVisible) {
+                val vh = recycleFriends.findViewHolderForAdapterPosition(i) as FriendsAdapter.MViewHolder
+
+                runOnUiThread {
+                    val time = myList[i].time
+
+                    if (time <= 0) {
+                        vh.tvTime!!.text = "已邀请(30s)"
+                        vh.tvTime!!.setTextColor(Color.GRAY)
+                    } else {
+                        vh.tvTime!!.text = "已邀请($time s)"
+                        //                                vh!!.tvTime!!.visibility = View.GONE
                     }
                 }
             }

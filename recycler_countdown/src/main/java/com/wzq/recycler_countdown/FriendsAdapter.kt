@@ -5,16 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 
-class MAdapter(context: Context, private val list: List<UserBasicInfo>) : RecyclerView.Adapter<MAdapter.MViewHolder>() {
+class FriendsAdapter(context: Context, private val list: List<UserBasicInfo>) : RecyclerView.Adapter<FriendsAdapter.MViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var onItemClickListener: Main2Activity.OnItemClickListener? = null
+    //设置点击事件
+    interface OnItemClickListener {
+        fun onItemClick( position: Int)
+    }
+    private var onItemClickListener: OnItemClickListener? = null
 
     //设置接收条目点击事件方法
-    fun setOnItemClickListener(onItemClickListener: Main2Activity.OnItemClickListener?) {
+    fun setOnItemClickListener(onItemClickListener: OnItemClickListener?) {
         this.onItemClickListener = onItemClickListener
     }
 
@@ -50,7 +53,6 @@ class MAdapter(context: Context, private val list: List<UserBasicInfo>) : Recycl
         }
         holder.tvTime.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
-                Toast.makeText(p0?.context, "点击了$position", Toast.LENGTH_SHORT).show()
                 onItemClickListener?.onItemClick(position)
             }
         })

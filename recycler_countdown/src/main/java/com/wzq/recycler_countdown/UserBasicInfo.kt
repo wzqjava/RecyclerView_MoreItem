@@ -8,11 +8,11 @@ package com.wzq.recycler_countdown
  */
 class UserBasicInfo {
 
-    var userId_ = ""
-    var nickname_ = ""
-    var userImageUrl_ = ""
-    var gloryLevelName_ = ""
-    var currDanPicUrl_ = ""
-    var time = 5
+    var userId = ""
+    var nickname = ""
+    var userImageUrl = ""
+    var gloryLevelName = ""
+    var currDanPicUrl = ""
+    var time = 8
     var user_status = 0
 }
