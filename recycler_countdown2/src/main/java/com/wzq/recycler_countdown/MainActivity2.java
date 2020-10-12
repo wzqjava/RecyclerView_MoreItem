@@ -53,40 +53,40 @@ public class MainActivity2 extends AppCompatActivity {
 
     public static List<TimerItem> initData() {
         listTimerItems = new ArrayList<>();
-        listTimerItems.add(new TimerItem("A", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("B", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("C1", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Cw", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Csa", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("C2", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Csa", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Csa", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Csa", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Csa", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("asaC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("daC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Chd", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Cgd", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("gdC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("sfsC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("sfC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("sfsC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("sfsC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("sfsC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Cfsf", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("fsC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Chf", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Chfg", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("fhfC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("hfgC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("hfghC", System.currentTimeMillis() + 30 * 1000));
-        listTimerItems.add(new TimerItem("Chfgh", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("01","A", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("02","B", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("03","C1", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("04","Cw", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("05","Csa", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("06","C2", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("07","Csa", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("08","Csa", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("09","Csa", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("10","Csa", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("11","asaC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("12","daC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("13","Chd", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("14","Cgd", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("15","gdC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("16","sfsC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("17","sfC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("18","sfsC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("19","sfsC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("20","sfsC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("21","Cfsf", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("22","fsC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("23","Chf", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("34","Chfg", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("25","fhfC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("26","hfgC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("27","hfghC", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(new TimerItem("28","Chfgh", System.currentTimeMillis() + 30 * 1000));
         return listTimerItems;
 
     }
 
     public void addItem() {
-        listTimerItems.add(1, new TimerItem("wzq", System.currentTimeMillis() + 30 * 1000));
+        listTimerItems.add(1, new TimerItem("99","wzq", System.currentTimeMillis() + 30 * 1000));
         mAdapter.notifyItemInserted(1);
 
     }
