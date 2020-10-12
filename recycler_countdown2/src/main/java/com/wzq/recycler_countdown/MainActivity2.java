@@ -25,6 +25,7 @@ public class MainActivity2 extends AppCompatActivity {
         button = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
         mAdapter = new MyAdapter(this, initData());
+
         mListView.setAdapter(mAdapter);
 
         mAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {

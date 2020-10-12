@@ -9,6 +9,7 @@ import android.util.SparseArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -50,18 +51,17 @@ class MyAdapter(
 //        holder.setIsRecyclable(false);
         Log.e(tag, "onBindViewHolder:$holder--position:$position")
         val userBasicInfo = mDatas[position]
-        if(userBasicInfo.time==null){
+        if (userBasicInfo.time == null) {
             holder.tvInvite.text = "邀请"
 //                holder.tvInvite.setBackgroundResource(R.drawable.challenge_shape_invite)
             holder.tvInvite.isClickable = true
             holder.tvInvite.isEnabled = true
-        }else{
+        } else {
             holder.tvInvite.text = "邀请${userBasicInfo?.time}"
             holder.tvInvite.isClickable = false
             holder.tvInvite.isEnabled = false
         }
 //        holder.tvInvite.text = "邀请"
-
 
 
 //        val countDownTimer = countDownMap.get(userBasicInfo.userId.hashCode())
@@ -80,15 +80,15 @@ class MyAdapter(
         } else {
             Log.e(tag, "countDownTimer是null")
         }*/
-        userBasicInfo.startListener={
+        userBasicInfo.startListener = {
             notifyDataSetChanged()
         }
-        userBasicInfo.finishListener={
+        userBasicInfo.finishListener = {
             notifyDataSetChanged()
         }
 
         holder.tvInvite.setOnClickListener(View.OnClickListener {
-            Log.d("setOnClickListener","position:$position")
+            Log.d("setOnClickListener", "position:$position")
             onItemClickListener!!.onItemClick(position)
             userBasicInfo.start()
 //            if (countDownTimer != null) { // 点击或再次点击
@@ -126,12 +126,12 @@ class MyAdapter(
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tvStatus: TextView
+        var tvStatus: ImageView
         var tvInvite: TextView
 //        var countDownTimer: CountDownTimer? = null
 
         init {
-            tvStatus = itemView.findViewById<View>(R.id.tvStatus) as TextView
+            tvStatus = itemView.findViewById<View>(R.id.tvStatus) as ImageView
             tvInvite = itemView.findViewById<View>(R.id.tvTime) as TextView
         }
     }
