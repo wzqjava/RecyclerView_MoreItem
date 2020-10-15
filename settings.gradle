@@ -1,2 +1,2 @@
-include ':recycler_countdown','recycler_countdown2'
+include 'recycler_countdown2'
 include  ':RecyclerViewDemo2', ':recyclerdemo1',':RecyclerViewDemo2_kotlin'
