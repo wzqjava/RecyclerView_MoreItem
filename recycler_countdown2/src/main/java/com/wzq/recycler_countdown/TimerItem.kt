@@ -3,18 +3,6 @@ package com.wzq.recycler_countdown
 import android.os.CountDownTimer
 
 /**
- *
- * 作者：wzq
- *
- *
- *
- * 创建时间：2020/9/30
- *
- *
- *
- * 文件描述：
- *
- *
  */
 class TimerItem(
         var userId: String, //其他属性
